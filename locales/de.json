@@ -1,0 +1,105 @@
+{
+  "auth": {
+    "landing": {
+      "loginButtonLabel": "Einmelden"
+    },
+    "login": {
+      "missingUsernameError": "Benutzername fehlt",
+      "missingPasswordError": "Passwort fehlt",
+      "title": "Schön, dass du wieder da bist!",
+      "usernameOrMatrixIdInputLabel": "Benutzername oder Matrix Identität",
+      "usernameOrMatrixIdInputPlaceholder": "Wer bist du?",
+      "passwordInputLabel": "Passwort",
+      "passwordInputPlaceholder": "Pst! Nicht mitteilen",
+      "homeserverInputLabel": "Heimserver",
+      "homeserverInputPlaceholder": "Heimserver",
+      "basicLabel": "Allgemein",
+      "advancedLabel": "Erweitert",
+      "loginButtonLabel": "Einmelden",
+      "somethingWrongError": "Etwas ist schief gelaufen: \n\n{{errorText}}\n\n Probier es nochmal!",
+      "forbiddenError": "Benutzername/Passwort oder Heimserver falsch",
+      "userDeactivatedError": "Dieser Nutzer wurde deaktiviert. Bitte deinen Heimserver kontaktieren",
+      "limitExceededError": "Zu viele Abfragen. Warte einige Minuten vor dem nächsten Versuch.",
+      "unknownError": "Ein unbekannter Fehler ist auf den Heimserver aufgetreten",
+      "noResponseError": "Der angegebene Heimserver ist entweder kein Matrix Heimserver oder gerade nicht erreichbar",
+      "invalidUsernameError": "Es darf nur einen Doppelpunkt (:) in einer Matrix Benutzeridentität",
+      "noStoredCredentialsError": "Es ist ein unbekannter Fehler aufgetreten. Bitte probier es nochmal",
+      "unknownTokenError": "Das Token ist ungültig. Die Verbindung wurde wahrscheinlich unterbrochen.",
+      "invalidHomeserverError": "Das scheint kein Matrix Heimserver zu sein"
+    }
+  },
+  "messages": {
+    "composer": {
+      "placeholder": "Tipp eine Nachricht ein..."
+    },
+    "content": {
+      "groupTyping": "{{user1}} und {{others}} andere tippen gerade…",
+      "typing": "{{name}} tippt gerade...",
+      "contentNotUploaded": "Die Datei könnte nicht hochgeladen werden",
+      "imageSent": "{{sender}} hat ein Bild geschickt",
+      "memberInvited": "{{sender}} hat {{user}} zum Chat eingeladen",
+      "memberJoined": "{{sender}} ist den Chat beigetreten",
+      "memberLeft": "{{sender}} hat den Chat verlassen",
+      "membershipNotSupport": "Ditto unterstützt noch nicht die Mitgliedschaft \"{{membership}}\"",
+      "memberAvatarRemoved": "{{sender}} hat seinen Avatar entfernt",
+      "memberAvatarChanged": "{{sender}} hat seinen Avatar gewechselt",
+      "memberDisplayNameChanged": "{{prevSender}} hat seinen Namen auf {{newSender}} geändert",
+      "chatCreated": "{{sender}} hat den Chat erstellt\nHurra!",
+      "chatNameChanged": "{{sender}} hat den Name des Chats auf \"{{name}}\" geändert",
+      "chatAvatarChanged": "{{sender}} hat den Avatar des Chats gewechselt",
+      "chatDescriptionChanged": "{{sender}} hat die Beschreibung des Chats geändert",
+      "chatSettingsChanged": "{{sender}} hat die Einstellungen des Chats geändert",
+      "encryptNotSupport": "Ditto unterstützt noch nicht verschlüsselte Nachrichten",
+      "locationSharingNotSupport": "Ditto unterstützt noch nicht die Mitteilung des Standorts",
+      "fileSharingNotSupport": "Ditto unterstützt noch nicht Austausch und gemeinsamer Zugriff auf Dateien",
+      "audioNotSupport": "Ditto unterstützt noch nicht Audiodateien",
+      "videoFilesNotSupport": "Ditto unterstützt noch nicht Videodateien",
+      "typeNotSupport": "Ditto unterstützt noch nicht Dateien des Typs \"{{type}}\"",
+      "eventRedacted": "Diese Veranstaltung wurde redigiert",
+      "stickersNotSupport": "Ditto unterstützt noch nicht Aufkleber",
+      "thirdPartyInvite": "{{sender}} hat eine Dritteinladung geschickt"
+    }
+  },
+  "settings":{
+    "chooseAvatarLabel": "Avatar wählen",
+    "title": "Einstellungen",
+    "displayNameInputPlaceholder": "Sichtbarer Name wählen",
+    "displayNameInputLabel": "Sichtbarer Name",
+    "notificationsEnabledLabel": "Benachrichtigungen aktivieren",
+    "androidOnlyDescription": "Nur Android (jetzig!)",
+    "versionLabel": "{{app}} Version",
+    "links": {
+      "title": "Links",
+      "websiteLinkLabel": "Webseite",
+      "privacyPolicyLinkLabel": "Datenschutzerklärung",
+      "requestFeatureLinkLabel": "Erweiterung anfordern",
+      "reportProblemLinkLabel": "Fehler melden"
+    },
+    "logoutButtonLabel": "Abmelden"
+  },
+  "newChat": {
+    "title": "Neuer Chat",
+    "userSearch": {
+      "usersInputPlaceholder": "Mit wem willst du plaudern?",
+      "userInvalidNotice": "Gib einen gültigen Nutzer ein",
+      "usersExcessiveNotice": "Tut uns Leid, aber die Eingabe ist auf 10 Nutzer beschränkt"
+    },
+    "details": {
+      "title": "Chat Einzelheiten",
+      "chatNameInputLabel": "Chat Name (Optional)",
+      "chatNameInputPlaceholder": "z.B. Mein krasses Chatroom",
+      "privateTitle": "Privat",
+      "privateDescription": "Ein privater Chat darf nur auf Einladung betreten werden.",
+      "createChatButtonLabel": "Chat erstellen"
+    }
+  },
+  "home": {
+    "tab": {
+      "messages": "Nachrichten",
+      "groups": "Gruppen"
+    },
+    "banner": {
+      "syncing": "Synchronisieren..."
+    }
+  }
+}

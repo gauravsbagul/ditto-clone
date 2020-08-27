@@ -1,0 +1,31 @@
+{
+  "notification": {
+    "id": "$iEowMvTtZeZ2SqEZX4ZnQD-Lf2awKMnYDqW8359Hz10",
+    "room_id": "!mTHKuEkFXCRlWgQUaY:elequin.io",
+    "type": "m.room.message",
+    "sender": "@annie:elequin.io",
+    "sender_display_name": "Annie",
+    "room_name": "Ditto Chat",
+    "room_alias": "#ditto:elequin.io",
+    "prio": "high",
+    "content": {
+      "msgtype": "m.text",
+      "body": "I'm floating in a most peculiar way."
+    },
+    "counts": {
+      "unread": 0,
+      "missed_calls": 0
+    },
+    "devices": [
+      {
+        "app_id": "com.elequin.ditto",
+        "pushkey": "++1ROm1xZEapLvnmFNs6/xRbWRyGeL/Py0dLW6ebfgk=",
+        "pushkey_ts": 12345678,
+        "data": {},
+        "tweaks": {
+          "sound": "bing"
+        }
+      }
+    ]
+  }
+}

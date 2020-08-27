@@ -1,0 +1,198 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
+
+import com.android.build.OutputFile
+import groovy.json.JsonSlurper
+
+project.ext.react = [
+    enableHermes: false,  // clean and rebuild if changing
+]
+
+apply from: "../../node_modules/react-native/react.gradle"
+
+def enableSeparateBuildPerCPUArchitecture = false
+def enableProguardInReleaseBuilds = false
+def jscFlavor = 'org.webkit:android-jsc:+'
+def enableHermes = project.ext.react.get("enableHermes", false)
+
+// Get version from NPM package
+def getNpmVersion() {
+    def inputFile = new File("../package.json")
+    def packageJson = new JsonSlurper().parseText(inputFile.text)
+    return packageJson["version"]
+}
+def npmVersion = getNpmVersion().tokenize('.') //[0]major, [1]minor, [2]patch
+ext.versionMajor = npmVersion[0]
+ext.versionMinor = npmVersion[1]
+ext.versionPatch = npmVersion[2]
+def releaseVersionCode = Integer.parseInt(ext.versionMajor) * 10_000 + Integer.parseInt(ext.versionMinor) * 100 +  Integer.parseInt(ext.versionPatch)
+def releaseVersionName = "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}"
+
+// Get version from latest commit
+static def getCommitVersionCode() {
+    def cmd = 'git show -s --format=%ct'
+    def timestamp = new Long(cmd.execute().text.trim())
+
+    // It's a unix timestamp, minus timestamp of October 21th 2019 (first commit date) divided by 60: It's incremented by one every minute.
+    return ((timestamp - 1_569_030_071) / 60).toInteger()
+}
+static def getCommitVersionName() {
+    def hash = 'git show -s --format=%h'.execute().text.trim()
+    def timestamp = new Long('git show -s --format=%ct'.execute().text.trim()) * 1000
+    def time = new Date(timestamp).format("yyyyMMdd'T'HHmm'Z'").toString().trim()
+
+    // It's the commit hash with the date and time
+    return "${hash}-${time}"
+}
+def devVersionCode = getCommitVersionCode()
+def devVersionName = getCommitVersionName()
+
+// Get version from date
+def timeVersionName = new Date().format("yyyyMMdd'T'HHmm'Z'").toString().trim()
+
+// Get app display name from app.json
+def getAppName() {
+    def inputFile = new File("../app.json")
+    def appJson = new JsonSlurper().parseText(inputFile.text)
+    return appJson["displayName"]
+}
+def appName = getAppName()
+// Get app package name from app.json
+def getPackageName() {
+    def inputFile = new File("../app.json")
+    def appJson = new JsonSlurper().parseText(inputFile.text)
+    return appJson["name"]
+}
+def archiveName = getPackageName()
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.elequin.ditto"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode = releaseVersionCode
+        versionName = releaseVersionName
+        archivesBaseName = archiveName
+
+        multiDexEnabled true
+    }
+    splits {
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk false  // If true, also generate a universal APK
+            include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+        }
+    }
+
+    def releaseTemplate = {
+        minifyEnabled enableProguardInReleaseBuilds
+        proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        matchingFallbacks = ['release']
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            resValue "string", "app_name", "${appName} Debug"
+        }
+        releaseNightly releaseTemplate >> {
+            applicationIdSuffix ".nightly"
+            resValue "string", "app_name", "${appName} Nightly"
+        }
+        release releaseTemplate >> {
+            resValue "string", "app_name", appName
+        }
+    }
+
+    packagingOptions {
+        pickFirst "lib/armeabi-v7a/libc++_shared.so"
+        pickFirst "lib/arm64-v8a/libc++_shared.so"
+        pickFirst "lib/x86/libc++_shared.so"
+        pickFirst "lib/x86_64/libc++_shared.so"
+    }
+
+    // applicationVariants are e.g. debug, release
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+
+            def versionNameOverride = defaultConfig.versionName
+            def versionCodeOverride = defaultConfig.versionCode
+
+            if (variant.name == "debug") {
+                versionNameOverride = timeVersionName
+                versionCodeOverride = 1
+            } else if (variant.name == "releaseNightly") {
+                versionNameOverride = devVersionName
+                versionCodeOverride = devVersionCode
+            }
+
+            // For each separate APK per architecture, set a unique version code as described here:
+            // https://developer.android.com/studio/build/configure-apk-splits.html
+            def versionCodes = ["armeabi-v7a": 1, "x86": 2, "arm64-v8a": 3, "x86_64": 4]
+            def abi = output.getFilter(OutputFile.ABI)
+            if (abi != null) {  // null for the universal-debug, universal-release variants
+                versionCodeOverride =
+                        versionCodes.get(abi) + versionCodeOverride * 10
+            }
+            output.versionNameOverride = versionNameOverride
+            output.versionCodeOverride = versionCodeOverride
+        }
+        variant.outputs.all {
+            if (variant.name == "debug") {
+                outputFileName = "${archivesBaseName}-debug-${timeVersionName}.apk"
+            } else if (variant.name == "releaseNightly") {
+                outputFileName = "${archivesBaseName}-nightly-${devVersionName}.apk"
+            } else {
+                outputFileName = "${archivesBaseName}-${variant.versionName}.apk"
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    //noinspection GradleDynamicVersion
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
+      exclude group:'com.facebook.fbjni'
+    }
+    debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
+        exclude group:'com.facebook.flipper'
+    }
+    debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
+        exclude group:'com.facebook.flipper'
+    }
+
+    implementation project(':watermelondb')
+
+    if (enableHermes) {
+        def hermesPath = "../../node_modules/hermes-engine/android/"
+        debugImplementation files(hermesPath + "hermes-debug.aar")
+        releaseImplementation files(hermesPath + "hermes-release.aar")
+    } else {
+        implementation jscFlavor
+    }
+}
+
+// Run this once to be able to run the application with BUCK
+// puts all compile dependencies into folder libs for BUCK to use
+task copyDownloadableDepsToLibs(type: Copy) {
+    from configurations.compile
+    into 'libs'
+}
+
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

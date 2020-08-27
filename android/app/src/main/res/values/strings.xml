@@ -1,0 +1,4 @@
+<resources>
+    <string name="messagingNotifications_actions_reply_button">Reply</string>
+    <string name="messagingNotifications_actions_reply_placeholder">Type your reply here…</string>
+</resources>

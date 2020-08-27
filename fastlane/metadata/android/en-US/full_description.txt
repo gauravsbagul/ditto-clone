@@ -1,0 +1,15 @@
+Ditto is an open-source Chat app built on Matrix, an open and decentralized communication protocol.
+
+Notice: Ditto is in active development and only basic features are implemented for now, with a lot more to come!
+
+With Ditto, you can:
+- Login to a Matrix account
+- Access direct and group chats
+- Create new chats
+- Send, reply to and receive text messages
+- Send and receive images
+- Change your display name and avatar
+- Get notifications when you receive new messages
+- Send and receive typing notifications
+- Send read receipts
+- Send and receive reactions

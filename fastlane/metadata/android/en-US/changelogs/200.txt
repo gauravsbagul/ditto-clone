@@ -1,0 +1,3 @@
+You can create new chats and receive notifications for new messages. You may also change your avatar or you display name and the theme is darker, plus a lot a bug fixes!
+
+Ditto is very much a work in progress, so thanks for your patience. Any feedback is welcome!

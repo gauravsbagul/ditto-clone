@@ -1,0 +1,3 @@
+We improved the interface and you can now see your chats when your are offline!
+
+Ditto is very much a work in progress, so thanks for your patience. Any feedback is welcome!

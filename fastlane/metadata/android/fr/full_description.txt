@@ -1,0 +1,15 @@
+Ditto est une application de messagerie instantanée basée sur Matrix, un protocole ouvert et décentralisé.
+
+Avertissement : Ditto est en plein développement et seulement des fonctionnalités basiques sont implémentées pour le moment. Plein d’autres sont à venir !
+
+Avec Ditto, vous pouvez :
+- Vous connecter à un compte Matrix
+- Accéder à des discussions directes et à des discussions de groupe
+- Créer de nouvelles discussions
+- Envoyer, recevoir et répondre à des messages
+- Envoyer et recevoir des images
+- Modifier votre nom affiché et votre avatar
+- Recevoir des notifications à la réception de nouveaux messages
+- Envoyer et recevoir des notifications de saisie
+- Envoyer des accusés de lecture
+- Envoyer et recevoir des réactions

@@ -1,0 +1,105 @@
+{
+  "auth": {
+    "landing": {
+      "loginButtonLabel": "Inloggen"
+    },
+    "login": {
+      "missingUsernameError": "Gebruikersnaam mist",
+      "missingPasswordError": "Wachtwoord mist",
+      "title": "Welkom terug!",
+      "usernameOrMatrixIdInputLabel": "Gebruikersnaam of Matrix ID",
+      "usernameOrMatrixIdInputPlaceholder": "Wie ben je?",
+      "passwordInputLabel": "Wachtwoord",
+      "passwordInputPlaceholder": "Ssst niet vertellen",
+      "homeserverInputLabel": "Thuisserver",
+      "homeserverInputPlaceholder": "Thuisserver",
+      "basicLabel": "Basis",
+      "advancedLabel": "Geavanceerd",
+      "loginButtonLabel": "Inloggen",
+      "somethingWrongError": "Het lijkt er op dat er iets verkeerd is gegaan: \n\n{{errorText}}\n\n Probeer het nogmaals!",
+      "forbiddenError": "Verkeerde gebruikersnaam/wachtwoord of thuisserver",
+      "userDeactivatedError": "Deze gebruiker is niet actief. Neem contact op met je thuisserver",
+      "limitExceededError": "Te veel verzoeken. Probeer het over enkele minuten nogmaals..",
+      "unknownError": "Er is een onbekende fout opgetreden met de thuisserver",
+      "noResponseError": "De thuisserver die is opgegeven is geen Matrix thuisserver, of hij is onbereikbaar",
+      "invalidUsernameError": "Er kan slechts één dubbele punt (:) worden gebruikt in een matrix gebruikers id",
+      "noStoredCredentialsError": "Er is een onverwachte fout opgetreden. Probeer het nogmaals",
+      "unknownTokenError": "De token is niet langer valide. De verbinding is waarschijnlijk onderbroken.",
+      "invalidHomeserverError": "Dit lijkt niet een matrix thuisserver te zijn"
+    }
+  },
+  "messages": {
+    "composer": {
+      "placeholder": "Schrijf een bericht..."
+    },
+    "content": {
+      "groupTyping": "{{user1}} en {{others}} anderen zijn aan het typen…",
+      "typing": "{{name}} is aan het typen...",
+      "contentNotUploaded": "Het bestand kon niet worden geüpload",
+      "imageSent": "{{sender}} verstuurde een afbeelding",
+      "memberInvited": "{{sender}} nodigde gebruiker {{user}} uit om de chat toe te treden",
+      "memberJoined": "{{sender}} is de chat toe getreden",
+      "memberLeft": "{{sender}} heeft de chat verlaten",
+      "membershipNotSupport": "Ditto heeft nog geen ondersteuning voor lidmaatschap \"{{membership}}\"",
+      "memberAvatarRemoved": "{{sender}} verwijderde de profielfoto",
+      "memberAvatarChanged": "{{sender}} wijzigde de profielfoto",
+      "memberDisplayNameChanged": "{{prevSender}} heeft de naam veranderd naar {{newSender}}",
+      "chatCreated": "{{sender}} heeft de chat aangemaakt\nHoera!",
+      "chatNameChanged": "{{sender}} veranderde de chatnaam naar \"{{name}}\"",
+      "chatAvatarChanged": "{{sender}} veranderde de chat profielfoto",
+      "chatDescriptionChanged": "{{sender}} veranderde de chat omschrijving",
+      "chatSettingsChanged": "{{sender}} veranderde de chat instellingen",
+      "encryptNotSupport": "Ditto heeft nog geen ondersteuning voor versleutelde berichten",
+      "locationSharingNotSupport": "Ditto heeft nog geen ondersteuning voor locatie delen",
+      "fileSharingNotSupport": "Ditto heeft nog geen ondersteuning voor bestandsdeling",
+      "audioNotSupport": "Ditto heeft nog geen ondersteuning voor audio bestanden",
+      "videoFilesNotSupport": "Ditto heeft nog geen ondersteuning voor video bestanden",
+      "typeNotSupport": "Ditto heeft nog geen ondersteuning voor het type \"{{type}}\"",
+      "eventRedacted": "Deze gebeurtenis is geredigeerd",
+      "stickersNotSupport": "Ditto heeft nog geen ondersteuning voor stickers",
+      "thirdPartyInvite": "{{sender}} heeft een derde partij uitnodiging verstuurd"
+    }
+  },
+  "settings":{
+    "chooseAvatarLabel": "Kies een profielfoto",
+    "title": "Instellingen",
+    "displayNameInputPlaceholder": "Weergave naam instellen",
+    "displayNameInputLabel": "Weergave naam",
+    "notificationsEnabledLabel": "Notificaties inschakelen",
+    "androidOnlyDescription": "Alleen voor Android (voor nu!)",
+    "versionLabel": "{{app}} Versie",
+    "links": {
+      "title": "Koppelingen",
+      "websiteLinkLabel": "Website",
+      "privacyPolicyLinkLabel": "Privacy beleid",
+      "requestFeatureLinkLabel": "Verzoek een mogelijkheid",
+      "reportProblemLinkLabel": "Rapporteer een probleem"
+    },
+    "logoutButtonLabel": "Uitloggen"
+  },
+  "newChat": {
+    "title": "Nieuwe chat",
+    "userSearch": {
+      "usersInputPlaceholder": "met wie wil je chatten?",
+      "userInvalidNotice": "Voer een valide gebruiker in",
+      "usersExcessiveNotice": "Sorry, je kan een maximum van 10 gebruikers toevoegen"
+    },
+    "details": {
+      "title": "Chat details",
+      "chatNameInputLabel": "Chat naam (Optioneel)",
+      "chatNameInputPlaceholder": "Bijv. Mijn geweldige ruimte",
+      "privateTitle": "Privé",
+      "privateDescription": "Een privé chat is enkel open voor de mensen die door je worden uitgenodigd.",
+      "createChatButtonLabel": "Chat aanmaken"
+    }
+  },
+  "home": {
+    "tab": {
+      "messages": "Berichten",
+      "groups": "Groepen"
+    },
+    "banner": {
+      "syncing": "Synchroniseren..."
+    }
+  }
+}

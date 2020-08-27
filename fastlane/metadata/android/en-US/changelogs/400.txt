@@ -1,0 +1,3 @@
+Reactions are here! We also improved performance for users with a lot of rooms.
+
+Ditto is very much a work in progress, so thanks for your patience. Any feedback is welcome!

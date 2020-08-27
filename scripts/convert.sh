@@ -1,0 +1,1 @@
+cp ../data.json ../node_modules/unhomoglyph/data.json
